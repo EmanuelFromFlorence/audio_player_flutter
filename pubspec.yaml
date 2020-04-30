@@ -3,7 +3,7 @@ description: Apple Music / Tidal Style Audio Player for Flutter
 version: 0.0.1+1
 
 environment:
-  sdk: ">=2.8.0-dev <3.0.0"
+  sdk: ">=2.8.0 <3.0.0"
 
 dependencies:
   flutter:

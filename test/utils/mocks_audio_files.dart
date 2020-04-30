@@ -10,11 +10,11 @@ const _audioFilesAuthors = [
   'Not Now Boom',
   'Visualization',
   'Face Your Thoughts',
-  'Drone some D',
+  'Drone D',
   'Dreaming T',
   'Soundscapes Оver Sun',
   'Hair Brushing',
-  'The End',
+  'The Swim Bro',
   'The Doors',
   'No Doubt',
   'Jay Zee',
@@ -23,8 +23,8 @@ const _audioFilesAuthors = [
   'White and Black',
   'Hypnosis',
   'Rap Steine',
-  'Dj Vitalik',
-  '2 PAc',
+  'Dj Vitalic',
+  '2 Pac',
 ];
 
 const _audioFilesTitles = [
@@ -61,7 +61,7 @@ Future<void> generateMockRelaxItemsJsonFile() async {
 class MockAudioFilesDataSource {
   static List<AudioFile> randomList() {
     return List<AudioFile>.generate(
-        randomIntInRange(300, 500), (index) => _randomAudioFile());
+        randomIntInRange(500, 700), (index) => _randomAudioFile());
   }
 
   static AudioFile _randomAudioFile() {
@@ -72,14 +72,14 @@ class MockAudioFilesDataSource {
 
     final artworkId = randomIntInRange(1, 23);
     final artwork =
-        'http://api-flutter-audio-player.herokuapp.com/assets/images/$artworkId.png';
+        'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/images%2F$artworkId.png';
 
     return AudioFile(
       (b) => b
         ..artist = authors
         ..artworkUrlPath = artwork
         ..audioFileUrlPath =
-            'https://api-flutter-audio-player.herokuapp.com/assets/audio/bensound-erf.mp3'
+            'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3?alt=media&token=61d1c35b-9171-41bf-a08f-63b51e53c2d8'
         ..duration = 264600
         ..id = Uuid().v4()
         ..title = title,
