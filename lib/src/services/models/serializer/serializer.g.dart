@@ -7,7 +7,7 @@ part of serializer;
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
-      ..add(Assets.serializer)
+      ..add(Asset.serializer)
       ..add(Track.serializer))
     .build();
 

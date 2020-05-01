@@ -1,4 +1,4 @@
-library assets;
+library asset;
 
 import 'dart:convert';
 
@@ -6,15 +6,9 @@ import 'package:audio_player_flutter/src/services/models/serializer/serializer.d
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'assets.g.dart';
+part 'asset.g.dart';
 
-abstract class Assets implements Built<Assets, AssetsBuilder> {
-  static Serializer<Assets> get serializer => _$assetsSerializer;
-
-  factory Assets([void Function(AssetsBuilder) updates]) = _$Assets;
-
-  Assets._();
-
+abstract class Asset implements Built<Asset, AssetBuilder> {
   String get bucket;
   String get contentDisposition;
   String get contentEncoding;
@@ -31,16 +25,18 @@ abstract class Assets implements Built<Assets, AssetsBuilder> {
   String get timeCreated;
   String get updated;
 
-  String downloadUrl() {
-    return 'https://firebasestorage.googleapis.com/v0/b/$bucket/o/audio/${Uri.encodeComponent(name)}?alt=media&token=$downloadTokens';
-  }
+  Asset._();
+
+  factory Asset([void Function(AssetBuilder) updates]) = _$Asset;
 
   String toJson() {
-    return json.encode(serializers.serializeWith(Assets.serializer, this));
+    return json.encode(serializers.serializeWith(Asset.serializer, this));
   }
 
-  static Assets fromJson(String jsonString) {
+  static Asset fromJson(String jsonString) {
     return serializers.deserializeWith(
-        Assets.serializer, json.decode(jsonString));
+        Asset.serializer, json.decode(jsonString));
   }
+
+  static Serializer<Asset> get serializer => _$assetSerializer;
 }

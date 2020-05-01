@@ -1,6 +1,6 @@
 library serializer;
 
-import 'package:audio_player_flutter/src/services/models/assets/assets.dart';
+import 'package:audio_player_flutter/src/services/models/asset/asset.dart';
 import 'package:audio_player_flutter/src/services/models/track/track.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
@@ -9,8 +9,8 @@ import 'package:built_value/standard_json_plugin.dart';
 part 'serializer.g.dart';
 
 @SerializersFor([
+  Asset,
   Track,
-  Assets,
 ])
 final Serializers serializers =
     (_$serializers.toBuilder()..addPlugin(StandardJsonPlugin())).build();

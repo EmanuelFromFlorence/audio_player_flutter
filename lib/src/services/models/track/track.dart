@@ -2,6 +2,7 @@ library track;
 
 import 'dart:convert';
 
+import 'package:audio_player_flutter/src/services/models/asset/asset.dart';
 import 'package:audio_player_flutter/src/services/models/serializer/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
@@ -22,6 +23,8 @@ abstract class Track implements Built<Track, TrackBuilder> {
   int get duration;
   String get id;
   String get title;
+
+  Asset get imageAsset;
 
   String toJson() {
     return json.encode(serializers.serializeWith(Track.serializer, this));

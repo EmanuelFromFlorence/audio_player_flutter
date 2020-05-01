@@ -1,21 +1,21 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of assets;
+part of asset;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Assets> _$assetsSerializer = new _$AssetsSerializer();
+Serializer<Asset> _$assetSerializer = new _$AssetSerializer();
 
-class _$AssetsSerializer implements StructuredSerializer<Assets> {
+class _$AssetSerializer implements StructuredSerializer<Asset> {
   @override
-  final Iterable<Type> types = const [Assets, _$Assets];
+  final Iterable<Type> types = const [Asset, _$Asset];
   @override
-  final String wireName = 'Assets';
+  final String wireName = 'Asset';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Assets object,
+  Iterable<Object> serialize(Serializers serializers, Asset object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'bucket',
@@ -66,9 +66,9 @@ class _$AssetsSerializer implements StructuredSerializer<Assets> {
   }
 
   @override
-  Assets deserialize(Serializers serializers, Iterable<Object> serialized,
+  Asset deserialize(Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new AssetsBuilder();
+    final result = new AssetBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -143,7 +143,7 @@ class _$AssetsSerializer implements StructuredSerializer<Assets> {
   }
 }
 
-class _$Assets extends Assets {
+class _$Asset extends Asset {
   @override
   final String bucket;
   @override
@@ -175,10 +175,10 @@ class _$Assets extends Assets {
   @override
   final String updated;
 
-  factory _$Assets([void Function(AssetsBuilder) updates]) =>
-      (new AssetsBuilder()..update(updates)).build();
+  factory _$Asset([void Function(AssetBuilder) updates]) =>
+      (new AssetBuilder()..update(updates)).build();
 
-  _$Assets._(
+  _$Asset._(
       {this.bucket,
       this.contentDisposition,
       this.contentEncoding,
@@ -196,63 +196,63 @@ class _$Assets extends Assets {
       this.updated})
       : super._() {
     if (bucket == null) {
-      throw new BuiltValueNullFieldError('Assets', 'bucket');
+      throw new BuiltValueNullFieldError('Asset', 'bucket');
     }
     if (contentDisposition == null) {
-      throw new BuiltValueNullFieldError('Assets', 'contentDisposition');
+      throw new BuiltValueNullFieldError('Asset', 'contentDisposition');
     }
     if (contentEncoding == null) {
-      throw new BuiltValueNullFieldError('Assets', 'contentEncoding');
+      throw new BuiltValueNullFieldError('Asset', 'contentEncoding');
     }
     if (contentType == null) {
-      throw new BuiltValueNullFieldError('Assets', 'contentType');
+      throw new BuiltValueNullFieldError('Asset', 'contentType');
     }
     if (crc32c == null) {
-      throw new BuiltValueNullFieldError('Assets', 'crc32c');
+      throw new BuiltValueNullFieldError('Asset', 'crc32c');
     }
     if (downloadTokens == null) {
-      throw new BuiltValueNullFieldError('Assets', 'downloadTokens');
+      throw new BuiltValueNullFieldError('Asset', 'downloadTokens');
     }
     if (etag == null) {
-      throw new BuiltValueNullFieldError('Assets', 'etag');
+      throw new BuiltValueNullFieldError('Asset', 'etag');
     }
     if (generation == null) {
-      throw new BuiltValueNullFieldError('Assets', 'generation');
+      throw new BuiltValueNullFieldError('Asset', 'generation');
     }
     if (md5Hash == null) {
-      throw new BuiltValueNullFieldError('Assets', 'md5Hash');
+      throw new BuiltValueNullFieldError('Asset', 'md5Hash');
     }
     if (metageneration == null) {
-      throw new BuiltValueNullFieldError('Assets', 'metageneration');
+      throw new BuiltValueNullFieldError('Asset', 'metageneration');
     }
     if (name == null) {
-      throw new BuiltValueNullFieldError('Assets', 'name');
+      throw new BuiltValueNullFieldError('Asset', 'name');
     }
     if (size == null) {
-      throw new BuiltValueNullFieldError('Assets', 'size');
+      throw new BuiltValueNullFieldError('Asset', 'size');
     }
     if (storageClass == null) {
-      throw new BuiltValueNullFieldError('Assets', 'storageClass');
+      throw new BuiltValueNullFieldError('Asset', 'storageClass');
     }
     if (timeCreated == null) {
-      throw new BuiltValueNullFieldError('Assets', 'timeCreated');
+      throw new BuiltValueNullFieldError('Asset', 'timeCreated');
     }
     if (updated == null) {
-      throw new BuiltValueNullFieldError('Assets', 'updated');
+      throw new BuiltValueNullFieldError('Asset', 'updated');
     }
   }
 
   @override
-  Assets rebuild(void Function(AssetsBuilder) updates) =>
+  Asset rebuild(void Function(AssetBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AssetsBuilder toBuilder() => new AssetsBuilder()..replace(this);
+  AssetBuilder toBuilder() => new AssetBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Assets &&
+    return other is Asset &&
         bucket == other.bucket &&
         contentDisposition == other.contentDisposition &&
         contentEncoding == other.contentEncoding &&
@@ -310,7 +310,7 @@ class _$Assets extends Assets {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Assets')
+    return (newBuiltValueToStringHelper('Asset')
           ..add('bucket', bucket)
           ..add('contentDisposition', contentDisposition)
           ..add('contentEncoding', contentEncoding)
@@ -330,8 +330,8 @@ class _$Assets extends Assets {
   }
 }
 
-class AssetsBuilder implements Builder<Assets, AssetsBuilder> {
-  _$Assets _$v;
+class AssetBuilder implements Builder<Asset, AssetBuilder> {
+  _$Asset _$v;
 
   String _bucket;
   String get bucket => _$this._bucket;
@@ -397,9 +397,9 @@ class AssetsBuilder implements Builder<Assets, AssetsBuilder> {
   String get updated => _$this._updated;
   set updated(String updated) => _$this._updated = updated;
 
-  AssetsBuilder();
+  AssetBuilder();
 
-  AssetsBuilder get _$this {
+  AssetBuilder get _$this {
     if (_$v != null) {
       _bucket = _$v.bucket;
       _contentDisposition = _$v.contentDisposition;
@@ -422,22 +422,22 @@ class AssetsBuilder implements Builder<Assets, AssetsBuilder> {
   }
 
   @override
-  void replace(Assets other) {
+  void replace(Asset other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$Assets;
+    _$v = other as _$Asset;
   }
 
   @override
-  void update(void Function(AssetsBuilder) updates) {
+  void update(void Function(AssetBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$Assets build() {
+  _$Asset build() {
     final _$result = _$v ??
-        new _$Assets._(
+        new _$Asset._(
             bucket: bucket,
             contentDisposition: contentDisposition,
             contentEncoding: contentEncoding,
