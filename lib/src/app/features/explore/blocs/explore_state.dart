@@ -1,6 +1,6 @@
 library explore_state;
 
-import 'package:audio_player_flutter/src/services/services.dart' show AudioFile;
+import 'package:audio_player_flutter/src/services/services.dart' show Track;
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:flutter/foundation.dart';
@@ -18,7 +18,7 @@ abstract class ExploreState
         ..isLoading = false
         ..initial = false
         ..error = ''
-        ..items.replace(BuiltList<AudioFile>()),
+        ..items.replace(BuiltList<Track>()),
     );
   }
 
@@ -28,7 +28,7 @@ abstract class ExploreState
         ..isLoading = false
         ..initial = false
         ..error = error
-        ..items.replace(BuiltList<AudioFile>()),
+        ..items.replace(BuiltList<Track>()),
     );
   }
 
@@ -38,7 +38,7 @@ abstract class ExploreState
         ..isLoading = false
         ..initial = true
         ..error = ''
-        ..items.replace(BuiltList<AudioFile>()),
+        ..items.replace(BuiltList<Track>()),
     );
   }
 
@@ -48,11 +48,11 @@ abstract class ExploreState
         ..isLoading = true
         ..initial = false
         ..error = ''
-        ..items.replace(BuiltList<AudioFile>()),
+        ..items.replace(BuiltList<Track>()),
     );
   }
 
-  factory ExploreState.success({@required BuiltList<AudioFile> items}) {
+  factory ExploreState.success({@required BuiltList<Track> items}) {
     return ExploreState(
       (b) => b
         ..isLoading = false
@@ -76,5 +76,5 @@ abstract class ExploreState
 
   bool get isLoading;
 
-  BuiltList<AudioFile> get items;
+  BuiltList<Track> get items;
 }

@@ -10,9 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AudioPlayer extends StatelessWidget {
-  final AudioFile audioFile;
+  final Track track;
 
-  const AudioPlayer({@required this.audioFile, Key key}) : super(key: key);
+  const AudioPlayer({@required this.track, Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,13 +54,13 @@ class AudioPlayer extends StatelessWidget {
                                 child: Column(
                                   children: <Widget>[
                                     Text(
-                                      '${audioFile.artist}',
+                                      '${track.artist}',
                                       style: const TextStyle(fontSize: 28),
                                       maxLines: 1,
                                     ),
                                     const SizedBox(height: 8),
                                     Text(
-                                      '${audioFile.title}',
+                                      '${track.title}',
                                       style: const TextStyle(fontSize: 18),
                                     ),
                                   ],
@@ -75,7 +75,7 @@ class AudioPlayer extends StatelessWidget {
                       const SizedBox(height: 40),
                       AudioSlider(
                         bloc: context.bloc<AudioPlayerBloc>(),
-                        audioFile: audioFile,
+                        track: track,
                       ),
                       Container(
                         padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
@@ -96,7 +96,7 @@ class AudioPlayer extends StatelessWidget {
                             ),
                             Text(
                               mediaTimeFormarter(
-                                Duration(milliseconds: audioFile.duration),
+                                Duration(milliseconds: track.duration),
                               ),
                               style: const TextStyle(color: Colors.grey),
                             ),
@@ -118,9 +118,8 @@ class AudioPlayer extends StatelessWidget {
                           AudioPlayButton(
                             stream: context.bloc<AudioPlayerBloc>(),
                             playerState: state,
-                            onPressed: () => context
-                                .bloc<AudioPlayerBloc>()
-                                .toggle(audioFile),
+                            onPressed: () =>
+                                context.bloc<AudioPlayerBloc>().toggle(track),
                           ),
                           AudioSkipButton(
                             stream: context.bloc<AudioPlayerBloc>(),
@@ -145,12 +144,12 @@ class AudioPlayer extends StatelessWidget {
   Widget _configureArtwork(BuildContext context) {
     if (aspectRatio(context) < 0.5) {
       return Image.network(
-        audioFile.artworkUrlPath,
+        track.artworkUrlPath,
         fit: BoxFit.cover,
       );
     } else {
       return Image.network(
-        audioFile.artworkUrlPath,
+        track.artworkUrlPath,
         height: screenHeight(context) - 450,
         fit: BoxFit.cover,
       );

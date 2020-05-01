@@ -88,11 +88,11 @@ class Explore extends StatelessWidget {
     );
   }
 
-  void _showAudioPlayer(BuildContext context, AudioFile audioFile) {
+  void _showAudioPlayer(BuildContext context, Track track) {
     Navigator.push(
       context,
       CustomModalRoute(
-        builder: (context) => AudioPlayer(audioFile: audioFile),
+        builder: (context) => AudioPlayer(track: track),
       ),
     );
   }

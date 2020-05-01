@@ -9,7 +9,7 @@ class ApiRepository {
   ApiRepository({ApiService apiService})
       : apiService = apiService ?? ApiService();
 
-  Future<BuiltList<AudioFile>> fetchAllTunes() async {
+  Future<BuiltList<Track>> fetchAllTunes() async {
     try {
       final isConnectedToInternet = await checkInterneConnection();
       if (!isConnectedToInternet) {

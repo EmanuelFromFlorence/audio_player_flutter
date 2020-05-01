@@ -1,5 +1,5 @@
-import 'package:audio_player_flutter/src/services/models/audio_file/audio_file.dart';
 import 'package:audio_player_flutter/src/services/persistance/json_storage.dart';
+import 'package:audio_player_flutter/src/services/services.dart';
 import 'package:uuid/uuid.dart';
 
 import 'mock_utils.dart';
@@ -55,16 +55,16 @@ const _audioFilesTitles = [
 Future<void> generateMockRelaxItemsJsonFile() async {
   final _jsonStorage = JsonStorage();
   final _audioItems = MockAudioFilesDataSource.randomList();
-  await _jsonStorage.writeJson(AudioFile.listOfAudioFilesToJson(_audioItems));
+  await _jsonStorage.writeJson(Track.listOfTracksToJson(_audioItems));
 }
 
 class MockAudioFilesDataSource {
-  static List<AudioFile> randomList() {
-    return List<AudioFile>.generate(
+  static List<Track> randomList() {
+    return List<Track>.generate(
         randomIntInRange(500, 700), (index) => _randomAudioFile());
   }
 
-  static AudioFile _randomAudioFile() {
+  static Track _randomAudioFile() {
     final authors =
         _audioFilesAuthors[random.nextInt(_audioFilesAuthors.length)];
 
@@ -74,7 +74,7 @@ class MockAudioFilesDataSource {
     final artwork =
         'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/images%2F$artworkId.png';
 
-    return AudioFile(
+    return Track(
       (b) => b
         ..artist = authors
         ..artworkUrlPath = artwork

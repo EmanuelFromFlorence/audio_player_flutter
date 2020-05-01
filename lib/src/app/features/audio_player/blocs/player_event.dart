@@ -18,7 +18,7 @@ abstract class PlayEvent extends PlayerEvent
     implements Built<PlayEvent, PlayEventBuilder> {
   PlayEvent._();
 
-  AudioFile get audioFile;
+  Track get audioFile;
 
   factory PlayEvent([void Function(PlayEventBuilder) updates]) = _$PlayEvent;
 }

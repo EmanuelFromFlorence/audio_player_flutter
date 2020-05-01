@@ -1,7 +1,7 @@
 import 'package:audio_player_flutter/src/app/features/audio_player/blocs/blocs.dart';
 import 'package:audio_player_flutter/src/app/features/audio_player/models/audio_skip_button_type.dart';
 import 'package:audio_player_flutter/src/configurations/environment/environment.dart';
-import 'package:audio_player_flutter/src/services/services.dart' show AudioFile;
+import 'package:audio_player_flutter/src/services/services.dart' show Track;
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AudioPlayerBloc extends Bloc<PlayerEvent, PlayerState> {
@@ -59,7 +59,7 @@ class AudioPlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
   void stop() => add(StopEvent((b) => b));
 
-  void toggle(AudioFile audioFile) {
+  void toggle(Track audioFile) {
     _isDisposed = false;
     if (state.stopped) {
       _isPlayed = false;
@@ -79,7 +79,7 @@ class AudioPlayerBloc extends Bloc<PlayerEvent, PlayerState> {
 
   Stream<PlayerState> _playTune(PlayEvent event) async* {
     _trackDuration = event.audioFile.duration;
-    Current.audioService.playAudio(audioFile: event.audioFile);
+    Current.audioService.playAudio(track: event.audioFile);
     Current.audioService.onProgress().listen((p) {
       _trackPosition = p.inMilliseconds;
       if (!_isDisposed) {

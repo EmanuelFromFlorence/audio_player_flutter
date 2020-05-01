@@ -1,6 +1,6 @@
 library audio_service;
 
-import 'package:audio_player_flutter/src/services/models/audio_file/audio_file.dart';
+import 'package:audio_player_flutter/src/services/services.dart' show Track;
 import 'package:audioplayers/audioplayers.dart';
 import 'package:built_value/built_value.dart';
 import 'package:flutter/foundation.dart' show required;
@@ -22,8 +22,8 @@ abstract class AudioService
 
   void pauseAudio() async => await audioPlayer.pause();
 
-  void playAudio({@required AudioFile audioFile}) async {
-    await audioPlayer.play(audioFile.audioFileUrlPath);
+  void playAudio({@required Track track}) async {
+    await audioPlayer.play(track.audioFileUrlPath);
   }
 
   void resumeAudio() async => await audioPlayer.resume();

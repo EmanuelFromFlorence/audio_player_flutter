@@ -14,7 +14,7 @@ class _$ExploreState extends ExploreState {
   @override
   final bool isLoading;
   @override
-  final BuiltList items;
+  final BuiltList<Track> items;
 
   factory _$ExploreState([void Function(ExploreStateBuilder) updates]) =>
       (new ExploreStateBuilder()..update(updates)).build();
@@ -86,9 +86,9 @@ class ExploreStateBuilder
   bool get isLoading => _$this._isLoading;
   set isLoading(bool isLoading) => _$this._isLoading = isLoading;
 
-  BuiltList _items;
-  BuiltList get items => _$this._items;
-  set items(BuiltList items) => _$this._items = items;
+  ListBuilder<Track> _items;
+  ListBuilder<Track> get items => _$this._items ??= new ListBuilder<Track>();
+  set items(ListBuilder<Track> items) => _$this._items = items;
 
   ExploreStateBuilder();
 
@@ -97,7 +97,7 @@ class ExploreStateBuilder
       _error = _$v.error;
       _initial = _$v.initial;
       _isLoading = _$v.isLoading;
-      _items = _$v.items;
+      _items = _$v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -118,9 +118,25 @@ class ExploreStateBuilder
 
   @override
   _$ExploreState build() {
-    final _$result = _$v ??
-        new _$ExploreState._(
-            error: error, initial: initial, isLoading: isLoading, items: items);
+    _$ExploreState _$result;
+    try {
+      _$result = _$v ??
+          new _$ExploreState._(
+              error: error,
+              initial: initial,
+              isLoading: isLoading,
+              items: items.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'items';
+        items.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'ExploreState', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

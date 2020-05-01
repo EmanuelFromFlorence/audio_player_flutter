@@ -1,10 +1,10 @@
-import 'package:audio_player_flutter/src/services/services.dart';
+import 'package:audio_player_flutter/src/services/services.dart' show Track;
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class ExploreItem extends StatelessWidget {
-  final AudioFile audioFile;
-  final ValueChanged<AudioFile> onItemTapped;
+  final Track audioFile;
+  final ValueChanged<Track> onItemTapped;
 
   const ExploreItem({
     @required this.audioFile,

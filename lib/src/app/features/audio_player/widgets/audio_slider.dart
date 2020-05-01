@@ -1,14 +1,14 @@
 import 'package:audio_player_flutter/src/app/features/audio_player/blocs/blocs.dart'
     show AudioPlayerBloc;
-import 'package:audio_player_flutter/src/services/services.dart' show AudioFile;
+import 'package:audio_player_flutter/src/services/services.dart' show Track;
 import 'package:flutter/material.dart';
 
 class AudioSlider extends StatelessWidget {
-  final AudioFile audioFile;
+  final Track track;
   final AudioPlayerBloc bloc;
 
   const AudioSlider({
-    @required this.audioFile,
+    @required this.track,
     @required this.bloc,
     Key key,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class AudioSlider extends StatelessWidget {
     return Slider(
       value: bloc.trackPosition,
       min: 0,
-      max: audioFile.duration.toDouble(),
+      max: track.duration.toDouble(),
       activeColor: Colors.black,
       onChanged: (value) => bloc.seekTo(value.toInt()),
       onChangeEnd: (value) => bloc.resume(),
