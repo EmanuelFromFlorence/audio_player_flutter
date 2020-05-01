@@ -1,4 +1,4 @@
-library audio_file;
+library assets;
 
 import 'dart:convert';
 
@@ -6,12 +6,14 @@ import 'package:audio_player_flutter/src/services/models/serializer/serializer.d
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'audio_file.g.dart';
+part 'assets.g.dart';
 
-abstract class AudioFile implements Built<AudioFile, AudioFileBuilder> {
-  static Serializer<AudioFile> get serializer => _$audioFileSerializer;
-  factory AudioFile([void Function(AudioFileBuilder) updates]) = _$AudioFile;
-  AudioFile._();
+abstract class Assets implements Built<Assets, AssetsBuilder> {
+  static Serializer<Assets> get serializer => _$assetsSerializer;
+
+  factory Assets([void Function(AssetsBuilder) updates]) = _$Assets;
+
+  Assets._();
 
   String get bucket;
   String get contentDisposition;
@@ -33,14 +35,12 @@ abstract class AudioFile implements Built<AudioFile, AudioFileBuilder> {
     return 'https://firebasestorage.googleapis.com/v0/b/$bucket/o/audio/${Uri.encodeComponent(name)}?alt=media&token=$downloadTokens';
   }
 
-  //https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3?alt=media&token=61d1c35b-9171-41bf-a08f-63b51e53c2d8
-
   String toJson() {
-    return json.encode(serializers.serializeWith(AudioFile.serializer, this));
+    return json.encode(serializers.serializeWith(Assets.serializer, this));
   }
 
-  static AudioFile fromJson(String jsonString) {
+  static Assets fromJson(String jsonString) {
     return serializers.deserializeWith(
-        AudioFile.serializer, json.decode(jsonString));
+        Assets.serializer, json.decode(jsonString));
   }
 }
