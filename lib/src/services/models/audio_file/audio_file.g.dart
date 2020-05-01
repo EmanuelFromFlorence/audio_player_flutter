@@ -18,27 +18,50 @@ class _$AudioFileSerializer implements StructuredSerializer<AudioFile> {
   Iterable<Object> serialize(Serializers serializers, AudioFile object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'artworkUrlPath',
-      serializers.serialize(object.artworkUrlPath,
+      'bucket',
+      serializers.serialize(object.bucket,
           specifiedType: const FullType(String)),
-      'audioFileUrlPath',
-      serializers.serialize(object.audioFileUrlPath,
+      'contentDisposition',
+      serializers.serialize(object.contentDisposition,
           specifiedType: const FullType(String)),
-      'duration',
-      serializers.serialize(object.duration,
-          specifiedType: const FullType(int)),
-      'id',
-      serializers.serialize(object.id, specifiedType: const FullType(String)),
-      'title',
-      serializers.serialize(object.title,
+      'contentEncoding',
+      serializers.serialize(object.contentEncoding,
+          specifiedType: const FullType(String)),
+      'contentType',
+      serializers.serialize(object.contentType,
+          specifiedType: const FullType(String)),
+      'crc32c',
+      serializers.serialize(object.crc32c,
+          specifiedType: const FullType(String)),
+      'downloadTokens',
+      serializers.serialize(object.downloadTokens,
+          specifiedType: const FullType(String)),
+      'etag',
+      serializers.serialize(object.etag, specifiedType: const FullType(String)),
+      'generation',
+      serializers.serialize(object.generation,
+          specifiedType: const FullType(String)),
+      'md5Hash',
+      serializers.serialize(object.md5Hash,
+          specifiedType: const FullType(String)),
+      'metageneration',
+      serializers.serialize(object.metageneration,
+          specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'size',
+      serializers.serialize(object.size, specifiedType: const FullType(String)),
+      'storageClass',
+      serializers.serialize(object.storageClass,
+          specifiedType: const FullType(String)),
+      'timeCreated',
+      serializers.serialize(object.timeCreated,
+          specifiedType: const FullType(String)),
+      'updated',
+      serializers.serialize(object.updated,
           specifiedType: const FullType(String)),
     ];
-    if (object.artist != null) {
-      result
-        ..add('artist')
-        ..add(serializers.serialize(object.artist,
-            specifiedType: const FullType(String)));
-    }
+
     return result;
   }
 
@@ -53,28 +76,64 @@ class _$AudioFileSerializer implements StructuredSerializer<AudioFile> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'artist':
-          result.artist = serializers.deserialize(value,
+        case 'bucket':
+          result.bucket = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'artworkUrlPath':
-          result.artworkUrlPath = serializers.deserialize(value,
+        case 'contentDisposition':
+          result.contentDisposition = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'audioFileUrlPath':
-          result.audioFileUrlPath = serializers.deserialize(value,
+        case 'contentEncoding':
+          result.contentEncoding = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'duration':
-          result.duration = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
-        case 'id':
-          result.id = serializers.deserialize(value,
+        case 'contentType':
+          result.contentType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'title':
-          result.title = serializers.deserialize(value,
+        case 'crc32c':
+          result.crc32c = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'downloadTokens':
+          result.downloadTokens = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'etag':
+          result.etag = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'generation':
+          result.generation = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'md5Hash':
+          result.md5Hash = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'metageneration':
+          result.metageneration = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'size':
+          result.size = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'storageClass':
+          result.storageClass = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'timeCreated':
+          result.timeCreated = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'updated':
+          result.updated = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -86,43 +145,100 @@ class _$AudioFileSerializer implements StructuredSerializer<AudioFile> {
 
 class _$AudioFile extends AudioFile {
   @override
-  final String artist;
+  final String bucket;
   @override
-  final String artworkUrlPath;
+  final String contentDisposition;
   @override
-  final String audioFileUrlPath;
+  final String contentEncoding;
   @override
-  final int duration;
+  final String contentType;
   @override
-  final String id;
+  final String crc32c;
   @override
-  final String title;
+  final String downloadTokens;
+  @override
+  final String etag;
+  @override
+  final String generation;
+  @override
+  final String md5Hash;
+  @override
+  final String metageneration;
+  @override
+  final String name;
+  @override
+  final String size;
+  @override
+  final String storageClass;
+  @override
+  final String timeCreated;
+  @override
+  final String updated;
 
   factory _$AudioFile([void Function(AudioFileBuilder) updates]) =>
       (new AudioFileBuilder()..update(updates)).build();
 
   _$AudioFile._(
-      {this.artist,
-      this.artworkUrlPath,
-      this.audioFileUrlPath,
-      this.duration,
-      this.id,
-      this.title})
+      {this.bucket,
+      this.contentDisposition,
+      this.contentEncoding,
+      this.contentType,
+      this.crc32c,
+      this.downloadTokens,
+      this.etag,
+      this.generation,
+      this.md5Hash,
+      this.metageneration,
+      this.name,
+      this.size,
+      this.storageClass,
+      this.timeCreated,
+      this.updated})
       : super._() {
-    if (artworkUrlPath == null) {
-      throw new BuiltValueNullFieldError('AudioFile', 'artworkUrlPath');
+    if (bucket == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'bucket');
     }
-    if (audioFileUrlPath == null) {
-      throw new BuiltValueNullFieldError('AudioFile', 'audioFileUrlPath');
+    if (contentDisposition == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'contentDisposition');
     }
-    if (duration == null) {
-      throw new BuiltValueNullFieldError('AudioFile', 'duration');
+    if (contentEncoding == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'contentEncoding');
     }
-    if (id == null) {
-      throw new BuiltValueNullFieldError('AudioFile', 'id');
+    if (contentType == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'contentType');
     }
-    if (title == null) {
-      throw new BuiltValueNullFieldError('AudioFile', 'title');
+    if (crc32c == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'crc32c');
+    }
+    if (downloadTokens == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'downloadTokens');
+    }
+    if (etag == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'etag');
+    }
+    if (generation == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'generation');
+    }
+    if (md5Hash == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'md5Hash');
+    }
+    if (metageneration == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'metageneration');
+    }
+    if (name == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'name');
+    }
+    if (size == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'size');
+    }
+    if (storageClass == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'storageClass');
+    }
+    if (timeCreated == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'timeCreated');
+    }
+    if (updated == null) {
+      throw new BuiltValueNullFieldError('AudioFile', 'updated');
     }
   }
 
@@ -137,12 +253,21 @@ class _$AudioFile extends AudioFile {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AudioFile &&
-        artist == other.artist &&
-        artworkUrlPath == other.artworkUrlPath &&
-        audioFileUrlPath == other.audioFileUrlPath &&
-        duration == other.duration &&
-        id == other.id &&
-        title == other.title;
+        bucket == other.bucket &&
+        contentDisposition == other.contentDisposition &&
+        contentEncoding == other.contentEncoding &&
+        contentType == other.contentType &&
+        crc32c == other.crc32c &&
+        downloadTokens == other.downloadTokens &&
+        etag == other.etag &&
+        generation == other.generation &&
+        md5Hash == other.md5Hash &&
+        metageneration == other.metageneration &&
+        name == other.name &&
+        size == other.size &&
+        storageClass == other.storageClass &&
+        timeCreated == other.timeCreated &&
+        updated == other.updated;
   }
 
   @override
@@ -150,22 +275,57 @@ class _$AudioFile extends AudioFile {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, artist.hashCode), artworkUrlPath.hashCode),
-                    audioFileUrlPath.hashCode),
-                duration.hashCode),
-            id.hashCode),
-        title.hashCode));
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                0,
+                                                                bucket
+                                                                    .hashCode),
+                                                            contentDisposition
+                                                                .hashCode),
+                                                        contentEncoding
+                                                            .hashCode),
+                                                    contentType.hashCode),
+                                                crc32c.hashCode),
+                                            downloadTokens.hashCode),
+                                        etag.hashCode),
+                                    generation.hashCode),
+                                md5Hash.hashCode),
+                            metageneration.hashCode),
+                        name.hashCode),
+                    size.hashCode),
+                storageClass.hashCode),
+            timeCreated.hashCode),
+        updated.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('AudioFile')
-          ..add('artist', artist)
-          ..add('artworkUrlPath', artworkUrlPath)
-          ..add('audioFileUrlPath', audioFileUrlPath)
-          ..add('duration', duration)
-          ..add('id', id)
-          ..add('title', title))
+          ..add('bucket', bucket)
+          ..add('contentDisposition', contentDisposition)
+          ..add('contentEncoding', contentEncoding)
+          ..add('contentType', contentType)
+          ..add('crc32c', crc32c)
+          ..add('downloadTokens', downloadTokens)
+          ..add('etag', etag)
+          ..add('generation', generation)
+          ..add('md5Hash', md5Hash)
+          ..add('metageneration', metageneration)
+          ..add('name', name)
+          ..add('size', size)
+          ..add('storageClass', storageClass)
+          ..add('timeCreated', timeCreated)
+          ..add('updated', updated))
         .toString();
   }
 }
@@ -173,42 +333,89 @@ class _$AudioFile extends AudioFile {
 class AudioFileBuilder implements Builder<AudioFile, AudioFileBuilder> {
   _$AudioFile _$v;
 
-  String _artist;
-  String get artist => _$this._artist;
-  set artist(String artist) => _$this._artist = artist;
+  String _bucket;
+  String get bucket => _$this._bucket;
+  set bucket(String bucket) => _$this._bucket = bucket;
 
-  String _artworkUrlPath;
-  String get artworkUrlPath => _$this._artworkUrlPath;
-  set artworkUrlPath(String artworkUrlPath) =>
-      _$this._artworkUrlPath = artworkUrlPath;
+  String _contentDisposition;
+  String get contentDisposition => _$this._contentDisposition;
+  set contentDisposition(String contentDisposition) =>
+      _$this._contentDisposition = contentDisposition;
 
-  String _audioFileUrlPath;
-  String get audioFileUrlPath => _$this._audioFileUrlPath;
-  set audioFileUrlPath(String audioFileUrlPath) =>
-      _$this._audioFileUrlPath = audioFileUrlPath;
+  String _contentEncoding;
+  String get contentEncoding => _$this._contentEncoding;
+  set contentEncoding(String contentEncoding) =>
+      _$this._contentEncoding = contentEncoding;
 
-  int _duration;
-  int get duration => _$this._duration;
-  set duration(int duration) => _$this._duration = duration;
+  String _contentType;
+  String get contentType => _$this._contentType;
+  set contentType(String contentType) => _$this._contentType = contentType;
 
-  String _id;
-  String get id => _$this._id;
-  set id(String id) => _$this._id = id;
+  String _crc32c;
+  String get crc32c => _$this._crc32c;
+  set crc32c(String crc32c) => _$this._crc32c = crc32c;
 
-  String _title;
-  String get title => _$this._title;
-  set title(String title) => _$this._title = title;
+  String _downloadTokens;
+  String get downloadTokens => _$this._downloadTokens;
+  set downloadTokens(String downloadTokens) =>
+      _$this._downloadTokens = downloadTokens;
+
+  String _etag;
+  String get etag => _$this._etag;
+  set etag(String etag) => _$this._etag = etag;
+
+  String _generation;
+  String get generation => _$this._generation;
+  set generation(String generation) => _$this._generation = generation;
+
+  String _md5Hash;
+  String get md5Hash => _$this._md5Hash;
+  set md5Hash(String md5Hash) => _$this._md5Hash = md5Hash;
+
+  String _metageneration;
+  String get metageneration => _$this._metageneration;
+  set metageneration(String metageneration) =>
+      _$this._metageneration = metageneration;
+
+  String _name;
+  String get name => _$this._name;
+  set name(String name) => _$this._name = name;
+
+  String _size;
+  String get size => _$this._size;
+  set size(String size) => _$this._size = size;
+
+  String _storageClass;
+  String get storageClass => _$this._storageClass;
+  set storageClass(String storageClass) => _$this._storageClass = storageClass;
+
+  String _timeCreated;
+  String get timeCreated => _$this._timeCreated;
+  set timeCreated(String timeCreated) => _$this._timeCreated = timeCreated;
+
+  String _updated;
+  String get updated => _$this._updated;
+  set updated(String updated) => _$this._updated = updated;
 
   AudioFileBuilder();
 
   AudioFileBuilder get _$this {
     if (_$v != null) {
-      _artist = _$v.artist;
-      _artworkUrlPath = _$v.artworkUrlPath;
-      _audioFileUrlPath = _$v.audioFileUrlPath;
-      _duration = _$v.duration;
-      _id = _$v.id;
-      _title = _$v.title;
+      _bucket = _$v.bucket;
+      _contentDisposition = _$v.contentDisposition;
+      _contentEncoding = _$v.contentEncoding;
+      _contentType = _$v.contentType;
+      _crc32c = _$v.crc32c;
+      _downloadTokens = _$v.downloadTokens;
+      _etag = _$v.etag;
+      _generation = _$v.generation;
+      _md5Hash = _$v.md5Hash;
+      _metageneration = _$v.metageneration;
+      _name = _$v.name;
+      _size = _$v.size;
+      _storageClass = _$v.storageClass;
+      _timeCreated = _$v.timeCreated;
+      _updated = _$v.updated;
       _$v = null;
     }
     return this;
@@ -231,12 +438,21 @@ class AudioFileBuilder implements Builder<AudioFile, AudioFileBuilder> {
   _$AudioFile build() {
     final _$result = _$v ??
         new _$AudioFile._(
-            artist: artist,
-            artworkUrlPath: artworkUrlPath,
-            audioFileUrlPath: audioFileUrlPath,
-            duration: duration,
-            id: id,
-            title: title);
+            bucket: bucket,
+            contentDisposition: contentDisposition,
+            contentEncoding: contentEncoding,
+            contentType: contentType,
+            crc32c: crc32c,
+            downloadTokens: downloadTokens,
+            etag: etag,
+            generation: generation,
+            md5Hash: md5Hash,
+            metageneration: metageneration,
+            name: name,
+            size: size,
+            storageClass: storageClass,
+            timeCreated: timeCreated,
+            updated: updated);
     replace(_$result);
     return _$result;
   }

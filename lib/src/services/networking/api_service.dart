@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   final Map<String, Object> cache;
-  final _baseUrl = 'https://api-flutter-audio-player.herokuapp.com';
+  final _baseUrl = 'https://flutter-template-7b07a.firebaseio.com';
   final http.Client client;
 
   ApiService({
@@ -18,7 +18,7 @@ class ApiService {
 
   Future<BuiltList<AudioFile>> fetchAllTunes() async {
     final response = await client.get(
-      '$_baseUrl/tunes',
+      '$_baseUrl/tunes.json',
       headers: {
         HttpHeaders.acceptHeader: '*/*',
         HttpHeaders.cacheControlHeader: 'no-cache',

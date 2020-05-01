@@ -3,7 +3,6 @@ library audio_file;
 import 'dart:convert';
 
 import 'package:audio_player_flutter/src/services/models/serializer/serializer.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -11,23 +10,31 @@ part 'audio_file.g.dart';
 
 abstract class AudioFile implements Built<AudioFile, AudioFileBuilder> {
   static Serializer<AudioFile> get serializer => _$audioFileSerializer;
-
   factory AudioFile([void Function(AudioFileBuilder) updates]) = _$AudioFile;
-
   AudioFile._();
 
-  @nullable
-  String get artist;
+  String get bucket;
+  String get contentDisposition;
+  String get contentEncoding;
+  String get contentType;
+  String get crc32c;
+  String get downloadTokens;
+  String get etag;
+  String get generation;
+  String get md5Hash;
+  String get metageneration;
+  String get name;
+  String get size;
+  String get storageClass;
+  String get timeCreated;
+  String get updated;
 
-  String get artworkUrlPath;
+  String downloadUrl() {
+    return Uri.encodeComponent(
+        'https://firebasestorage.googleapis.com/v0/b/$bucket/o/audio/$name?alt=media&token=$downloadTokens');
+  }
 
-  String get audioFileUrlPath;
-
-  int get duration;
-
-  String get id;
-
-  String get title;
+  //https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3?alt=media&token=61d1c35b-9171-41bf-a08f-63b51e53c2d8
 
   String toJson() {
     return json.encode(serializers.serializeWith(AudioFile.serializer, this));
@@ -36,19 +43,5 @@ abstract class AudioFile implements Built<AudioFile, AudioFileBuilder> {
   static AudioFile fromJson(String jsonString) {
     return serializers.deserializeWith(
         AudioFile.serializer, json.decode(jsonString));
-  }
-
-  static String listOfAudioFilesToJson(List<AudioFile> audioFiles) {
-    final data = <String>[];
-    audioFiles.forEach((item) {
-      final json = item.toJson();
-      data.add(json);
-    });
-    return '$data';
-  }
-
-  static BuiltList<AudioFile> parseListOfAudioFiles(String responseBody) {
-    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
-    return deserializeListOf<AudioFile>(parsed);
   }
 }
