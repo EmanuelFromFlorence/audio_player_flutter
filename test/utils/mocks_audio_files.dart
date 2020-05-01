@@ -79,7 +79,7 @@ class MockAudioFilesDataSource {
         ..artist = authors
         ..artworkUrlPath = artwork
         ..audioFileUrlPath =
-            'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3?alt=media&token=61d1c35b-9171-41bf-a08f-63b51e53c2d8'
+            'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3'
         ..duration = 264600
         ..id = Uuid().v4()
         ..title = title,

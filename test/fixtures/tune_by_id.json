@@ -1,8 +1,8 @@
 {
-  "artist": "Sleep 342",
-  "artworkUrlPath": "http://api-flutter-audio-player.herokuapp.com/assets/images/17.png",
-  "audioFileUrlPath": "https://api-flutter-audio-player.herokuapp.com/assets/audio/bensound-erf.mp3",
+  "artworkUrlPath": "https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/images%2F16.png",
+  "audioFileUrlPath": "https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/audio%2Fbensound-erf.mp3",
   "duration": 264600,
-  "id": "610dff69-bd9e-4b65-b290-32d6dd05cf61",
-  "title": "Drone i12"
+  "id": "2d50700c-b4d3-4fc1-bdbf-d0f84efd6935",
+  "title": "Time Of His Thunder",
+  "artist": "The Doors"
 }
