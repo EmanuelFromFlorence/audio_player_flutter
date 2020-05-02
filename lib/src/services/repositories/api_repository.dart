@@ -9,16 +9,22 @@ class ApiRepository {
   ApiRepository({ApiService apiService})
       : apiService = apiService ?? ApiService();
 
-  Future<BuiltList<Track>> fetchAllTunes() async {
+  Future<BuiltList<Track>> getAllTracks() async {
     try {
       final isConnectedToInternet = await checkInterneConnection();
       if (!isConnectedToInternet) {
         throw NetworkError('No Internet');
       }
 
-      return await apiService.fetchAllTunes();
+      return await apiService.getAllTracks();
     } on NetworkError catch (error) {
       throw NetworkError('${error.message}');
     }
   }
+
+  // Future<void> getAllArtworks(BuiltList<Track> trackList) async {
+  //   trackList.forEach((item) {
+  //     await apiService.getAsset(item.artworkUrlPath);
+  //   });
+  // }
 }

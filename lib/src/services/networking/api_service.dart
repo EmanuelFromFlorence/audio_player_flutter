@@ -16,19 +16,21 @@ class ApiService {
   })  : client = client ?? http.Client(),
         cache = cache ?? <String, Object>{};
 
-  Future<BuiltList<Track>> fetchAllTunes() async {
-    final response = await client.get(
-      '$_baseUrl/tunes.json',
-      headers: {
-        HttpHeaders.acceptHeader: '*/*',
-        HttpHeaders.cacheControlHeader: 'no-cache',
-        HttpHeaders.contentTypeHeader: 'application/json',
-        HttpHeaders.authorizationHeader: 'Bearer account.accessToken'
-      },
-    );
-    print('Api Service: fetch Tracks: ${response.statusCode}');
+  Future<BuiltList<Track>> getAllTracks() async {
+    final response = await client.get('$_baseUrl/tunes.json');
+    print('Api Service: get Tracks: ${response.statusCode}');
     if (response.statusCode == 200) {
       return compute(Track.parseListOfTracks, response.body);
+    } else {
+      throw NetworkError(response.statusCode.toString());
+    }
+  }
+
+  Future<Asset> getAsset(String assetPath) async {
+    final response = await client.get(assetPath);
+    print('Api Service: get Asset: ${response.statusCode}');
+    if (response.statusCode == 200) {
+      return Asset.fromJson(response.body);
     } else {
       throw NetworkError(response.statusCode.toString());
     }

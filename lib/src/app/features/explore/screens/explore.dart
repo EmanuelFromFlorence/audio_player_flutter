@@ -51,12 +51,12 @@ class Explore extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            'Error $error',
+            'Error ',
             style: TextStyle(color: Colors.red, fontSize: 34),
           ),
           const SizedBox(height: 8),
           Text(
-            '''The server is down.\nPlease, deploy JSON API to your Heroku account.''',
+            error,
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.black, fontSize: 16),
           ),

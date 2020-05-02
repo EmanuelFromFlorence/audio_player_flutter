@@ -17,7 +17,7 @@ class ExploreBloc extends Bloc<ExploreEvent, ExploreState> {
   Stream<ExploreState> _mapFetchOPostsInitiated(FetchAudioItems event) async* {
     yield ExploreState.loading();
     try {
-      final results = await Current.apiRepository.fetchAllTunes();
+      final results = await Current.apiRepository.getAllTracks();
 
       if (results.isEmpty) {
         yield ExploreState.empty();
