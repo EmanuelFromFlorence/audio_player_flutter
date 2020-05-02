@@ -3,7 +3,6 @@ library asset_response;
 import 'dart:convert';
 
 import 'package:audio_player_flutter/src/services/models/serializer/serializer.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
