@@ -1,21 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of track;
+part of track_response;
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<Track> _$trackSerializer = new _$TrackSerializer();
+Serializer<TrackResponse> _$trackResponseSerializer =
+    new _$TrackResponseSerializer();
 
-class _$TrackSerializer implements StructuredSerializer<Track> {
+class _$TrackResponseSerializer implements StructuredSerializer<TrackResponse> {
   @override
-  final Iterable<Type> types = const [Track, _$Track];
+  final Iterable<Type> types = const [TrackResponse, _$TrackResponse];
   @override
-  final String wireName = 'Track';
+  final String wireName = 'TrackResponse';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, Track object,
+  Iterable<Object> serialize(Serializers serializers, TrackResponse object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
       'artist',
@@ -35,18 +36,16 @@ class _$TrackSerializer implements StructuredSerializer<Track> {
       'title',
       serializers.serialize(object.title,
           specifiedType: const FullType(String)),
-      'imageAsset',
-      serializers.serialize(object.imageAsset,
-          specifiedType: const FullType(Asset)),
     ];
 
     return result;
   }
 
   @override
-  Track deserialize(Serializers serializers, Iterable<Object> serialized,
+  TrackResponse deserialize(
+      Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new TrackBuilder();
+    final result = new TrackResponseBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -78,10 +77,6 @@ class _$TrackSerializer implements StructuredSerializer<Track> {
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'imageAsset':
-          result.imageAsset.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Asset)) as Asset);
-          break;
       }
     }
 
@@ -89,7 +84,7 @@ class _$TrackSerializer implements StructuredSerializer<Track> {
   }
 }
 
-class _$Track extends Track {
+class _$TrackResponse extends TrackResponse {
   @override
   final String artist;
   @override
@@ -102,62 +97,55 @@ class _$Track extends Track {
   final String id;
   @override
   final String title;
-  @override
-  final Asset imageAsset;
 
-  factory _$Track([void Function(TrackBuilder) updates]) =>
-      (new TrackBuilder()..update(updates)).build();
+  factory _$TrackResponse([void Function(TrackResponseBuilder) updates]) =>
+      (new TrackResponseBuilder()..update(updates)).build();
 
-  _$Track._(
+  _$TrackResponse._(
       {this.artist,
       this.artworkUrlPath,
       this.audioFileUrlPath,
       this.duration,
       this.id,
-      this.title,
-      this.imageAsset})
+      this.title})
       : super._() {
     if (artist == null) {
-      throw new BuiltValueNullFieldError('Track', 'artist');
+      throw new BuiltValueNullFieldError('TrackResponse', 'artist');
     }
     if (artworkUrlPath == null) {
-      throw new BuiltValueNullFieldError('Track', 'artworkUrlPath');
+      throw new BuiltValueNullFieldError('TrackResponse', 'artworkUrlPath');
     }
     if (audioFileUrlPath == null) {
-      throw new BuiltValueNullFieldError('Track', 'audioFileUrlPath');
+      throw new BuiltValueNullFieldError('TrackResponse', 'audioFileUrlPath');
     }
     if (duration == null) {
-      throw new BuiltValueNullFieldError('Track', 'duration');
+      throw new BuiltValueNullFieldError('TrackResponse', 'duration');
     }
     if (id == null) {
-      throw new BuiltValueNullFieldError('Track', 'id');
+      throw new BuiltValueNullFieldError('TrackResponse', 'id');
     }
     if (title == null) {
-      throw new BuiltValueNullFieldError('Track', 'title');
-    }
-    if (imageAsset == null) {
-      throw new BuiltValueNullFieldError('Track', 'imageAsset');
+      throw new BuiltValueNullFieldError('TrackResponse', 'title');
     }
   }
 
   @override
-  Track rebuild(void Function(TrackBuilder) updates) =>
+  TrackResponse rebuild(void Function(TrackResponseBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  TrackBuilder toBuilder() => new TrackBuilder()..replace(this);
+  TrackResponseBuilder toBuilder() => new TrackResponseBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Track &&
+    return other is TrackResponse &&
         artist == other.artist &&
         artworkUrlPath == other.artworkUrlPath &&
         audioFileUrlPath == other.audioFileUrlPath &&
         duration == other.duration &&
         id == other.id &&
-        title == other.title &&
-        imageAsset == other.imageAsset;
+        title == other.title;
   }
 
   @override
@@ -165,31 +153,29 @@ class _$Track extends Track {
     return $jf($jc(
         $jc(
             $jc(
-                $jc(
-                    $jc($jc($jc(0, artist.hashCode), artworkUrlPath.hashCode),
-                        audioFileUrlPath.hashCode),
-                    duration.hashCode),
-                id.hashCode),
-            title.hashCode),
-        imageAsset.hashCode));
+                $jc($jc($jc(0, artist.hashCode), artworkUrlPath.hashCode),
+                    audioFileUrlPath.hashCode),
+                duration.hashCode),
+            id.hashCode),
+        title.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('Track')
+    return (newBuiltValueToStringHelper('TrackResponse')
           ..add('artist', artist)
           ..add('artworkUrlPath', artworkUrlPath)
           ..add('audioFileUrlPath', audioFileUrlPath)
           ..add('duration', duration)
           ..add('id', id)
-          ..add('title', title)
-          ..add('imageAsset', imageAsset))
+          ..add('title', title))
         .toString();
   }
 }
 
-class TrackBuilder implements Builder<Track, TrackBuilder> {
-  _$Track _$v;
+class TrackResponseBuilder
+    implements Builder<TrackResponse, TrackResponseBuilder> {
+  _$TrackResponse _$v;
 
   String _artist;
   String get artist => _$this._artist;
@@ -217,13 +203,9 @@ class TrackBuilder implements Builder<Track, TrackBuilder> {
   String get title => _$this._title;
   set title(String title) => _$this._title = title;
 
-  AssetBuilder _imageAsset;
-  AssetBuilder get imageAsset => _$this._imageAsset ??= new AssetBuilder();
-  set imageAsset(AssetBuilder imageAsset) => _$this._imageAsset = imageAsset;
+  TrackResponseBuilder();
 
-  TrackBuilder();
-
-  TrackBuilder get _$this {
+  TrackResponseBuilder get _$this {
     if (_$v != null) {
       _artist = _$v.artist;
       _artworkUrlPath = _$v.artworkUrlPath;
@@ -231,49 +213,34 @@ class TrackBuilder implements Builder<Track, TrackBuilder> {
       _duration = _$v.duration;
       _id = _$v.id;
       _title = _$v.title;
-      _imageAsset = _$v.imageAsset?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(Track other) {
+  void replace(TrackResponse other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$Track;
+    _$v = other as _$TrackResponse;
   }
 
   @override
-  void update(void Function(TrackBuilder) updates) {
+  void update(void Function(TrackResponseBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$Track build() {
-    _$Track _$result;
-    try {
-      _$result = _$v ??
-          new _$Track._(
-              artist: artist,
-              artworkUrlPath: artworkUrlPath,
-              audioFileUrlPath: audioFileUrlPath,
-              duration: duration,
-              id: id,
-              title: title,
-              imageAsset: imageAsset.build());
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'imageAsset';
-        imageAsset.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Track', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+  _$TrackResponse build() {
+    final _$result = _$v ??
+        new _$TrackResponse._(
+            artist: artist,
+            artworkUrlPath: artworkUrlPath,
+            audioFileUrlPath: audioFileUrlPath,
+            duration: duration,
+            id: id,
+            title: title);
     replace(_$result);
     return _$result;
   }
