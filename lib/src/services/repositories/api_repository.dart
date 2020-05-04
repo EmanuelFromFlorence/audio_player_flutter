@@ -10,44 +10,39 @@ class ApiRepository {
       : apiService = apiService ?? ApiService();
 
   Future<AssetResponse> _getAllArtworks(
-    BuiltList<TrackResponse> trackList,
+    BuiltList<TrackResponse> trackResponseList,
   ) async {
     final items = await Future.forEach(
-      trackList,
+      trackResponseList,
       (item) => apiService.getAsset(item.artworkUrlPath),
     );
     return items;
   }
 
   Future<AssetResponse> _getAllAudiofiles(
-    BuiltList<TrackResponse> trackList,
+    BuiltList<TrackResponse> trackResponseList,
   ) async {
     final items = await Future.forEach(
-      trackList,
+      trackResponseList,
       (item) => apiService.getAsset(item),
     );
     return items;
   }
 
-  Future<BuiltList<TrackResponse>> _getAllTrackResponse() async {
+  Future<void> getAllTracks() async {
     try {
       final isConnectedToInternet = await checkInterneConnection();
       if (!isConnectedToInternet) {
         throw NetworkError('No Internet');
       }
+      final trackResponseList = await apiService.getAllTracks();
 
-      return await apiService.getAllTracks();
+      final ddd = await Future.wait([
+        _getAllArtworks(trackResponseList),
+        _getAllAudiofiles(trackResponseList)
+      ]);
     } on NetworkError catch (error) {
       throw NetworkError('${error.message}');
     }
   }
-
-  // Future<BuiltList<Track>> getAllTracks() async {
-  //   try {
-
-  //     return
-  //   } on NetworkError catch (error) {
-  //     throw NetworkError('${error.message}');
-  //   }
-  // }
 }

@@ -8,6 +8,9 @@ import 'package:built_value/serializer.dart';
 
 part 'asset_response.g.dart';
 
+const _firebaseStorage =
+    'https://firebasestorage.googleapis.com/v0/b/flutter-template-7b07a.appspot.com/o/';
+
 abstract class AssetResponse
     implements Built<AssetResponse, AssetResponseBuilder> {
   static Serializer<AssetResponse> get serializer => _$assetResponseSerializer;
@@ -41,5 +44,9 @@ abstract class AssetResponse
   static AssetResponse fromJson(String jsonString) {
     return serializers.deserializeWith(
         AssetResponse.serializer, json.decode(jsonString));
+  }
+
+  String get directUrl {
+    return '''$_firebaseStorage${Uri.encodeComponent(name)}?alt=media&token=$downloadTokens''';
   }
 }
