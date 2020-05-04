@@ -7,15 +7,10 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class ApiService {
-  final Map<String, Object> cache;
   final _baseUrl = 'https://flutter-template-7b07a.firebaseio.com';
   final http.Client client;
 
-  ApiService({
-    HttpClient client,
-    Map<String, Object> cache,
-  })  : client = client ?? http.Client(),
-        cache = cache ?? <String, Object>{};
+  ApiService({HttpClient client}) : client = client ?? http.Client();
 
   Future<BuiltList<TrackResponse>> getAllTracks() async {
     final response = await client.get('$_baseUrl/tunes.json');

@@ -9,7 +9,27 @@ class ApiRepository {
   ApiRepository({ApiService apiService})
       : apiService = apiService ?? ApiService();
 
-  Future<BuiltList<TrackResponse>> getAllTracks() async {
+  Future<AssetResponse> _getAllArtworks(
+    BuiltList<TrackResponse> trackList,
+  ) async {
+    final items = await Future.forEach(
+      trackList,
+      (item) => apiService.getAsset(item.artworkUrlPath),
+    );
+    return items;
+  }
+
+  Future<AssetResponse> _getAllAudiofiles(
+    BuiltList<TrackResponse> trackList,
+  ) async {
+    final items = await Future.forEach(
+      trackList,
+      (item) => apiService.getAsset(item),
+    );
+    return items;
+  }
+
+  Future<BuiltList<TrackResponse>> _getAllTrackResponse() async {
     try {
       final isConnectedToInternet = await checkInterneConnection();
       if (!isConnectedToInternet) {
@@ -22,22 +42,7 @@ class ApiRepository {
     }
   }
 
-  // Future<void> getAllArtworks(BuiltList<TrackResponse> trackList) async {
-  //   //await Future.forEach(elements, (element) => null);
-
-  //   trackList.forEach((item) {
-  //     await apiService.getAsset(item.artworkUrlPath);
-  //   });
-  // }
-
-  // Future<void> getAllAudiofiles(BuiltList<TrackResponse> trackList) async {
-
-  //   trackList.forEach((item) {
-  //     await apiService.getAsset(item.artworkUrlPath);
-  //   });
-  // }
-
-  // Future<BuiltList<Track>> getAll() async {
+  // Future<BuiltList<Track>> getAllTracks() async {
   //   try {
 
   //     return
