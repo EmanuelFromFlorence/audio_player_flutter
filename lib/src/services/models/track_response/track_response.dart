@@ -35,9 +35,9 @@ abstract class TrackResponse
         TrackResponse.serializer, json.decode(jsonString));
   }
 
-  static String listOfTracksToJson(List<TrackResponse> audioFiles) {
+  static String listOfTrackResponseItems(List<TrackResponse> items) {
     final data = <String>[];
-    audioFiles.forEach((item) {
+    items.forEach((item) {
       final json = item.toJson();
       data.add(json);
     });

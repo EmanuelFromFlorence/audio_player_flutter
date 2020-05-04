@@ -22,9 +22,27 @@ class ApiRepository {
     }
   }
 
-  // Future<void> getAllArtworks(BuiltList<Track> trackList) async {
+  // Future<void> getAllArtworks(BuiltList<TrackResponse> trackList) async {
+  //   //await Future.forEach(elements, (element) => null);
+
   //   trackList.forEach((item) {
   //     await apiService.getAsset(item.artworkUrlPath);
   //   });
+  // }
+
+  // Future<void> getAllAudiofiles(BuiltList<TrackResponse> trackList) async {
+
+  //   trackList.forEach((item) {
+  //     await apiService.getAsset(item.artworkUrlPath);
+  //   });
+  // }
+
+  // Future<BuiltList<Track>> getAll() async {
+  //   try {
+
+  //     return
+  //   } on NetworkError catch (error) {
+  //     throw NetworkError('${error.message}');
+  //   }
   // }
 }
